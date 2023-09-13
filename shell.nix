@@ -40,6 +40,7 @@
     # Programs and libraries used by the new derivation at run-time
     packages = [
       pkgs.ncurses
+      pkgs.gcc
       pkgs.cmake
       pkgs.gnumake
       pkgs.go_1_21
