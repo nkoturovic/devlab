@@ -26,7 +26,7 @@ fn f() [10][]const u8 {
     };
 
     const result = comptime blk: {
-        var str: [10][]const u8 = .{};
+        var str: [10][]const u8 = undefined;
         var i = 0;
         var it: ?*const Node = &node_c;
         inline while (it) |node| {
