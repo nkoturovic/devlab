@@ -1,7 +1,7 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   inputs.zig = {
-    url = "github:mitchellh/zig-overlay";
+    url = "github:mitchellh/zig-overlay#0.12.0";
   };
   inputs.koturNixPkgs = {
     url = "github:nkoturovic/kotur-nixpkgs/v0.5";

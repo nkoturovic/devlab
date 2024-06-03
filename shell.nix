@@ -40,16 +40,16 @@
     # Programs and libraries used by the new derivation at run-time
     packages = [
       pkgs.ncurses
-      pkgs.gcc
-      pkgs.cmake
+      # pkgs.gcc
+      # pkgs.cmake
       pkgs.gnumake
-      pkgs.go_1_21
-      pkgs.rustc
-      pkgs.cargo
-      pkgs.cargo-expand
-      pkgs.helix
-      pkgs.zls
-      zig.master
+      pkgs.go
+      # pkgs.rustc
+      # pkgs.cargo
+      # pkgs.cargo-expand
+      # pkgs.helix
+      # pkgs.zls
+      zig."0.12.0"
       kotur-nixpkgs.dinosay # packet loads from the custom nixpkgs (kotur-nixpkgs)
     ];
 
