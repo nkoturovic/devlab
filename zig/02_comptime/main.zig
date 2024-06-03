@@ -29,7 +29,7 @@ fn f() [10][]const u8 {
         var str: [10][]const u8 = undefined;
         var i = 0;
         var it: ?*const Node = &node_c;
-        inline while (it) |node| {
+        while (it) |node| {
             str[i] = node.name;
             it = it.?.next;
             i += 1;
