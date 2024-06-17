@@ -52,6 +52,7 @@
     buildInputs = with pkgs; [
       # pkgs.clang-tools_18
       fmt
+      argparse
     ];
 
     # builtins.path is used since source of our package is the current directory: ./
