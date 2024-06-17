@@ -1,6 +1,6 @@
 module;
-#include <string> // std::getline
 #include <istream> // required
+#include <string>  // std::getline
 #include <vector>
 
 export module examples;
@@ -13,4 +13,4 @@ export [[nodiscard]] auto read_lines(std::istream &input) -> std::vector<std::st
   }
   return lines;
 }
-} // namespace example
+} // namespace examples

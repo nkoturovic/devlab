@@ -1,0 +1,8 @@
+Diagnostics:
+  ClangTidy:
+    Add:
+    	- performance-*
+    	- cppcoreguidelines-*
+    Remove:
+    	# - cppcoreguidelines-avoid-magic-numbers
+
