@@ -22,13 +22,19 @@ auto main(int argc, char *argv[]) -> int {
 
   // a helper struct for storing information about examples
   struct example_entry {
-    using function_type = void (*)();
+    using example_type = void (*)();
     std::string_view name;
-    function_type example;
+    example_type example;
   };
 
+  // clang-format off
   constexpr auto examples_list =
-      std::array{example_entry{.name = "read_lines", .example = examples::read_lines}};
+      std::array{
+        example_entry{.name = "read_lines", .example = examples::read_lines},
+        example_entry{.name = "read_ints",  .example = examples::read_ints},
+        example_entry{.name = "weak_ptr",  .example = examples::weak_ptr},
+     };
+  // clang-format on
 
   if (arg_parser["--list"] == true) {
     fmt::println("List of examples: ");
