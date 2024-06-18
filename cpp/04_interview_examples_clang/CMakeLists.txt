@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.29)
 Project(InterviewExamples)
 
+set(CMAKE_CXX_STANDARD 26)
+
 set(CLANG_WARNINGS
     -Wall
     -Wextra # reasonable and standard
@@ -20,5 +22,13 @@ set(CLANG_WARNINGS
     -Wimplicit-fallthrough # warn on statements that fallthrough without an explicit annotation
 )
 
-set(CMAKE_CXX_STANDARD 26)
-add_subdirectory(src)
+add_subdirectory(examples)
+
+find_package(fmt REQUIRED)
+find_package(argparse REQUIRED)
+
+add_executable(run-example main.cpp)
+target_compile_options(run-example PRIVATE ${CLANG_WARNINGS})
+target_link_libraries(run-example PRIVATE examples fmt::fmt argparse::argparse)
+
+install(TARGETS run-example)
