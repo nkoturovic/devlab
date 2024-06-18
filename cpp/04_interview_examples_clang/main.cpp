@@ -22,7 +22,7 @@ auto main(int argc, char *argv[]) -> int {
 
   // a helper struct for storing information about examples
   struct example_entry {
-    using example_type = void (*)();
+    using example_type = auto (*)() -> void;
     std::string_view name;
     example_type example;
   };

@@ -20,7 +20,7 @@ export module examples;
 
 export namespace examples {
 
-void read_lines() {
+auto read_lines() -> void {
   auto lines = ::read_lines(std::cin);
   for (auto &&[i, line] : std::views::enumerate(lines)) {
     fmt::println("  {}. {}", i, line);
@@ -28,7 +28,7 @@ void read_lines() {
   // use std::cin.rdbuf(); to read the intire buffer until eof
 }
 
-void read_ints() {
+auto read_ints() -> void {
   // true if read was successfull
   std::vector<int> nums;
   for (int num; std::cin >> num;) {
@@ -38,7 +38,7 @@ void read_ints() {
   // to read a single charcter use: char c; cin.get(c);
 }
 
-void weak_ptr() {
+auto weak_ptr() -> void {
 
   auto shared_ptr = std::make_shared<double>(1.0);
   auto weak1 = std::weak_ptr(shared_ptr); // not incrementing shared counter
