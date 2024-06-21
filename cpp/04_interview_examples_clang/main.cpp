@@ -33,6 +33,7 @@ auto main(int argc, char *argv[]) -> int {
         example_entry{.name = "read_lines", .example = examples::read_lines},
         example_entry{.name = "read_ints",  .example = examples::read_ints},
         example_entry{.name = "weak_ptr",  .example = examples::weak_ptr},
+        example_entry{.name = "static_variables",  .example = examples::static_variables},
      };
   // clang-format on
 

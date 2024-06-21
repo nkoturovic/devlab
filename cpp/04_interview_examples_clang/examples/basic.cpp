@@ -18,6 +18,18 @@ export module examples;
   return lines;
 }
 
+[[nodiscard]] static auto static_variables_impl() -> std::pair<int, int> {
+  // global and static variables with predefined initial values.
+  static int y; // .bss section
+  y = 0;
+  y++;
+
+  static auto x = 0; // .data section
+  x++;
+
+  return {x, y};
+}
+
 export namespace examples {
 
 auto read_lines() -> void {
@@ -62,5 +74,41 @@ auto weak_ptr() -> void {
   check_expired(weak1);
   check_expired(weak2);
 };
+
+// https : // downloads.ti.com/docs/esd/SPRUIG8/introduction-to-sections-stdz0691509.html
+// The smallest unit of an object file is a section. A section is a block of code or data
+// that occupies contiguous space in the memory map. Each section of an object file is
+// separate and distinct.
+
+// ELF format executable object files contain segments. An ELF segment is a meta-section. It
+// represents a contiguous region of target memory. It is a collection of sections that have
+// the same property, such as writeable or readable. An ELF loader needs the segment
+// information, but does not need the section information. The ELF standard allows the
+// linker to omit ELF section information entirely from the executable object file.
+
+// Object files usually contain three default sections:
+// .text section 	Contains executable code (1)
+// .data section 	Usually contains initialized data
+// .bss 	Usually reserves space for uninitialized variables
+// 1. Some targets allow content other than text, such as constants, in .text sections.
+//
+// The linker allows you to create, name, and link other kinds of sections. The .text,
+// .data, and .bss sections are archetypes for how sections are handled.
+//
+// There are two basic types of sections:
+// Initialized sections 	Contain data or code. The .text and .data sections are
+// initialized. Uninitialized sections 	Reserve space in the memory map for uninitialized
+// data. The .bss section is uninitialized.
+
+auto static_variables() {
+  for (auto i : std::ranges::views::iota(1, 6)) {
+    auto [x, y] = static_variables_impl();
+    fmt::println("{}. iteration: (x = {}, y = {})", i, x, y);
+  }
+}
+
+// TODO:
+// * https://en.cppreference.com/w/cpp/language/aggregate_initialization
+// * https://en.cppreference.com/w/cpp/language/structured_binding
 
 } // namespace examples
