@@ -17,6 +17,8 @@ Cargo.lock
 *.a
 *.out
 main
-*build*
+build
 .cache
 compile_commands.json
+zig-out
+zig-cache
