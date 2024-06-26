@@ -49,7 +49,7 @@
       # pkgs.cargo-expand
       # pkgs.helix
       # pkgs.zls
-      zig."0.12.0"
+      zig."0.13.0"
       kotur-nixpkgs.dinosay # packet loads from the custom nixpkgs (kotur-nixpkgs)
     ];
 
